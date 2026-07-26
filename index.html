@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Civics & Elections: The Exhaustion & Extraction Report</title>
+  <title>Build Cycle Proposal: Civic Exhaustion & Reframing | The Upskilling Labs</title>
 
-  <!-- Typography: Instrument Serif & Overpass (Light Weights) -->
+  <!-- Google Fonts: Instrument Serif & Overpass (Light Weights) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Overpass:wght@200;300;400&display=swap" rel="stylesheet">
@@ -20,11 +20,13 @@
       --font-serif: 'Instrument Serif', Georgia, serif;
       --font-sans: 'Overpass', -apple-system, BlinkMacSystemFont, sans-serif;
       
-      --color-bg: #fcfbf9;
-      --color-text: #1c1d1f;
-      --color-muted: #62666d;
-      --color-accent: #0f2b46;
-      --color-border: #e2e0d9;
+      --color-bg: #fdfcf9;
+      --color-text: #1b1c1e;
+      --color-muted: #5e626a;
+      --color-accent: #0e2a47;
+      --color-accent-hover: #19436e;
+      --color-border: #e3e0d8;
+      --color-highlight: #f0eee6;
     }
 
     * {
@@ -39,7 +41,7 @@
       font-family: var(--font-sans);
       font-weight: 300;
       font-size: 16px;
-      line-height: var(--baseline); /* 24px baseline rhythm */
+      line-height: var(--baseline); /* Strict 24px baseline */
       -webkit-font-smoothing: antialiased;
     }
 
@@ -58,7 +60,7 @@
     }
 
     h1 {
-      font-size: 56px;
+      font-size: 50px;
       line-height: calc(var(--baseline) * 3); /* 72px */
       margin-bottom: var(--baseline);
       letter-spacing: -0.01em;
@@ -74,7 +76,7 @@
     }
 
     h3 {
-      font-size: 21px;
+      font-size: 22px;
       line-height: var(--baseline); /* 24px */
       margin-bottom: var(--baseline);
     }
@@ -113,14 +115,12 @@
       gap: var(--baseline);
     }
 
-    /* Column Span Utilities */
     .span-1 { grid-column: span 1; }
     .span-2 { grid-column: span 2; }
     .span-3 { grid-column: span 3; }
     .span-4 { grid-column: span 4; }
     .span-5 { grid-column: span 5; }
 
-    /* Responsive Adaptation for Smaller Screens */
     @media (max-width: 900px) {
       .grid-5 {
         grid-template-columns: 1fr;
@@ -130,7 +130,6 @@
       }
     }
 
-    /* Section Spacing locked to Baseline */
     section {
       margin-bottom: calc(var(--baseline) * 3);
     }
@@ -141,7 +140,7 @@
       margin-bottom: var(--baseline);
     }
 
-    .card-num {
+    .card-tag {
       font-family: var(--font-serif);
       font-style: italic;
       color: var(--color-muted);
@@ -149,7 +148,20 @@
       line-height: var(--baseline);
     }
 
-    /* Standalone Button / CTA */
+    .bluf-box {
+      background-color: var(--color-highlight);
+      border: 1px solid var(--color-border);
+      padding: calc(var(--baseline) * 1.5);
+      margin-bottom: var(--baseline);
+    }
+
+    .button-group {
+      display: flex;
+      gap: var(--baseline);
+      flex-wrap: wrap;
+      margin-top: var(--baseline);
+    }
+
     .cta-button {
       display: inline-block;
       font-family: var(--font-sans);
@@ -166,7 +178,18 @@
     }
 
     .cta-button:hover {
-      background-color: #1a4269;
+      background-color: var(--color-accent-hover);
+    }
+
+    .cta-button-secondary {
+      background-color: transparent;
+      color: var(--color-accent);
+      border: 1px solid var(--color-accent);
+    }
+
+    .cta-button-secondary:hover {
+      background-color: var(--color-accent);
+      color: #ffffff;
     }
 
     ul.clean-list {
@@ -185,110 +208,120 @@
 <body>
 
   <!-- ==================================================
-       ATTENTION
+       ATTENTION (BLUF & PROBLEM SITUATION FIRST)
        ================================================== -->
   <section class="grid-5">
     <div class="span-5">
-      <span class="kicker">Research & Civic Analysis</span>
-      <h1>Civics, Elections & The Exhaustion Engine</h1>
+      <span class="kicker">The Upskilling Labs • Civics & Elections Build Cycle</span>
+      <h1>The Problem Situation: Democratic Engagement Has Become an Exhaustion Engine</h1>
     </div>
+    
+    <!-- BLUF CALLOUT -->
+    <div class="span-5 bluf-box">
+      <span class="kicker" style="color: var(--color-accent);">Bottom Line Up Front</span>
+      <p class="lead" style="color: var(--color-text); margin-bottom: 0;">
+        Citizens are not disengaging due to apathy—they are disengaging because modern election tech operates as a high-friction, transactional extraction system. I am asking for your vote to endorse this specific problem situation so we can apply <strong>Frame Innovation</strong> to saturate in the problem before rushing to build a tech fix.
+      </p>
+    </div>
+
     <div class="span-3">
-      <p class="lead">
-        Modern democracy has drifted from genuine public participation into transactional extraction. Voters are treated less as deliberate citizens and more as mined data points in a perpetual political machinery.
+      <p>
+        Modern civic platforms treat voters as data points to harvest and attention to monetize through continuous manufactured urgency. This creates structural voter fatigue, erodes institutional trust, and weakens long-term civic agency.
       </p>
     </div>
     <div class="span-2">
       <p>
-        This report analyzes how civic fatigue, algorithmic friction, and continuous fundraising cycles deplete voter trust—and maps out structural paths toward restorative democratic systems.
+        Before we attempt to build software, we must first deeply investigate, map, and reframe this problem arena.
       </p>
     </div>
   </section>
 
   <!-- ==================================================
-       INTEREST
+       INTEREST (SATURATING IN THE PROBLEM)
        ================================================== -->
   <section>
-    <h2>Understanding the Crisis of Civic Extraction</h2>
+    <h2>5 Dimensions of the Problem Arena</h2>
     <div class="grid-5">
       <div class="span-1 card">
-        <span class="card-num">01</span>
-        <h3>Continuous Friction</h3>
-        <p>Electoral mechanisms increasingly burden citizens with cognitive overhead, ambiguous choices, and endless urgency metrics.</p>
+        <span class="card-tag">Friction 01</span>
+        <h3>Transactional Extraction</h3>
+        <p>Civic platforms reduce citizens to data profiles used for algorithmic segmentation and endless micro-fundraising.</p>
       </div>
       <div class="span-1 card">
-        <span class="card-num">02</span>
-        <h3>Data Mining</h3>
-        <p>Voter engagement is quantified, segmented, and harvested for fundraising rather than cultivated for civic empowerment.</p>
+        <span class="card-tag">Friction 02</span>
+        <h3>Continuous Urgency</h3>
+        <p>Constant high-anxiety messaging creates cognitive overload, driving voters toward burnout and withdrawal.</p>
       </div>
       <div class="span-1 card">
-        <span class="card-num">03</span>
-        <h3>Information Noise</h3>
-        <p>High-volume, low-signal campaign media induces systemic cynicism, causing voters to retreat from institutional discourse.</p>
+        <span class="card-tag">Friction 03</span>
+        <h3>Signal-to-Noise Decay</h3>
+        <p>High volumes of low-value, coercive political content obscure clear, actionable democratic information.</p>
       </div>
       <div class="span-1 card">
-        <span class="card-num">04</span>
-        <h3>Structural Erosion</h3>
-        <p>Short-term electoral tactics weaken long-term democratic infrastructure, leaving communities feeling politically exhausted.</p>
+        <span class="card-tag">Friction 04</span>
+        <h3>Institutional Atrophy</h3>
+        <p>Short-term turnout tactics undermine long-term community trust and sustainable democratic participation.</p>
       </div>
       <div class="span-1 card">
-        <span class="card-num">05</span>
-        <h3>Trust Deficits</h3>
-        <p>When participation yields extraction rather than representation, public confidence in democratic institutions drops.</p>
+        <span class="card-tag">Friction 05</span>
+        <h3>Premature Solutions</h3>
+        <p>Most tech interventions fail because they digitize existing broken workflows rather than reframing the core problem.</p>
       </div>
     </div>
   </section>
 
   <!-- ==================================================
-       DESIRE
+       DESIRE (THE FRAME INNOVATION PROCESS)
        ================================================== -->
   <section>
-    <h2>A Framework for Democratic Renewal</h2>
+    <h2>Our Methodology: Reframing Before Building</h2>
     <div class="grid-5">
       <div class="span-3">
-        <h3>Shift from Extraction to Empowerment</h3>
+        <h3>Applying Kees Dorst’s Frame Innovation</h3>
         <p>
-          Restoring faith in public institutions requires shifting our focus from short-term voter turnout optimization to building long-term civic resilience. A healthy democracy treats participation as a public good, requiring intentional design, respectful communication, and transparent infrastructure.
+          Instead of jumping straight into wireframes, our team will use the Frame Innovation framework to thoroughly saturate in the problem space. By examining the underlying context, stakeholder behaviors, and systemic values, we will uncover a new conceptual frame for non-extractive civic interaction.
         </p>
         <p>
-          Our synthesis of field data, public surveys, and civic tech analysis reveals five foundational shifts necessary to replace electoral exhaustion with meaningful public agency:
+          This research-first initiation ensures that any resulting technical intervention will be genuinely differentiated, remarkable, and rooted in real-world human needs.
         </p>
       </div>
       <div class="span-2">
         <ul class="clean-list">
-          <li><strong>Relational Civics:</strong> Deepening community ties over transactional campaigns.</li>
-          <li><strong>Low-Friction Infrastructure:</strong> Clear, transparent ballot and voting processes.</li>
-          <li><strong>Sustainable Media:</strong> Signal-rich, non-coercive civic communications.</li>
-          <li><strong>Public Commons:</strong> Reclaiming digital spaces for genuine democratic deliberation.</li>
+          <li><strong>Phase 1: Initiation & Context:</strong> Establishing core problem parameters.</li>
+          <li><strong>Phase 2: Problem Saturation:</strong> Field research with voters & organizers.</li>
+          <li><strong>Phase 3: Theme Analysis:</strong> Uncovering hidden structural patterns.</li>
+          <li><strong>Phase 4: Reframing & Prototype:</strong> Designing a non-coercive intervention.</li>
         </ul>
       </div>
     </div>
   </section>
 
   <!-- ==================================================
-       ACTION
+       ACTION (CALL TO VOTE)
        ================================================== -->
   <section class="grid-5">
     <div class="span-5">
-      <h2>Explore the Complete Research</h2>
+      <h2>Vote for This Problem Situation</h2>
     </div>
     <div class="span-3">
       <p class="lead">
-        Access the complete analysis, qualitative interview transcripts, and civic technology design framework.
+        Back a proposal that prioritizes strategic inquiry and deep understanding over superficial feature building.
       </p>
       <p>
-        Whether you are an election administrator, civic technologist, or engaged researcher, this standalone archive offers actionable insights for building non-extractive civic tools.
+        If you are a registered participant or submitter in this Build Cycle at The Upskilling Labs, cast your vote for this problem situation and join the initiation research team.
       </p>
-      <p>
-        <a href="#download" class="cta-button">Read Full Synthesis Report</a>
-      </p>
+      <div class="button-group">
+        <a href="#vote" class="cta-button">Vote For This Problem Situation</a>
+        <a href="#join" class="cta-button cta-button-secondary">Join As Researcher / Strategist</a>
+      </div>
     </div>
     <div class="span-2 card">
-      <span class="card-num">Archive Details</span>
-      <h3>Document Index</h3>
-      <p>• Situation Analysis (MD)</p>
-      <p>• Structural Themes (MD)</p>
-      <p>• Extract Datasets (CSV)</p>
-      <p>• Project Metadata (JSON-LD)</p>
+      <span class="card-tag">Near-Term Execution</span>
+      <h3>Cycle Sequence</h3>
+      <p>• Week 1: Initiation & Field Saturation</p>
+      <p>• Week 2: Theme Analysis & Re-framing Workshops</p>
+      <p>• Week 3: Intervention Spec & Tech Architecture</p>
+      <p>• Week 4: Prototype Build & Lab Showcase</p>
     </div>
   </section>
 
