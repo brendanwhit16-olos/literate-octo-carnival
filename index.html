@@ -1,14 +1,296 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Civics &amp; Elections: Signal Pool</title>
-<link rel="stylesheet" href="./assets/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Civics & Elections: The Exhaustion & Extraction Report</title>
+
+  <!-- Typography: Instrument Serif & Overpass (Light Weights) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Overpass:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* --------------------------------------------------
+       BASELINE RHYTHM & OPTICAL GRID SYSTEM
+       Base Grid Unit = 8px | Baseline Rhythm = 24px
+    -------------------------------------------------- */
+    :root {
+      --baseline: 24px;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'Overpass', -apple-system, BlinkMacSystemFont, sans-serif;
+      
+      --color-bg: #fcfbf9;
+      --color-text: #1c1d1f;
+      --color-muted: #62666d;
+      --color-accent: #0f2b46;
+      --color-border: #e2e0d9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: var(--baseline); /* 24px baseline rhythm */
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      padding: calc(var(--baseline) * 2) calc(var(--baseline) * 1.5);
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* Standard Baseline Alignment Rules */
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      color: var(--color-accent);
+      text-wrap: balance;
+    }
+
+    h1 {
+      font-size: 56px;
+      line-height: calc(var(--baseline) * 3); /* 72px */
+      margin-bottom: var(--baseline);
+      letter-spacing: -0.01em;
+    }
+
+    h2 {
+      font-size: 32px;
+      line-height: calc(var(--baseline) * 2); /* 48px */
+      margin-top: calc(var(--baseline) * 2);
+      margin-bottom: var(--baseline);
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: calc(var(--baseline) - 1px);
+    }
+
+    h3 {
+      font-size: 21px;
+      line-height: var(--baseline); /* 24px */
+      margin-bottom: var(--baseline);
+    }
+
+    p {
+      font-weight: 300;
+      line-height: var(--baseline); /* 24px */
+      margin-bottom: var(--baseline);
+      color: var(--color-text);
+    }
+
+    p.lead {
+      font-size: 20px;
+      line-height: calc(var(--baseline) * 1.5); /* 36px */
+      font-weight: 200;
+      color: var(--color-muted);
+    }
+
+    .kicker {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      line-height: var(--baseline);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 400;
+      color: var(--color-muted);
+      display: block;
+    }
+
+    /* --------------------------------------------------
+       5-COLUMN GRID LAYOUT
+    -------------------------------------------------- */
+    .grid-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--baseline);
+    }
+
+    /* Column Span Utilities */
+    .span-1 { grid-column: span 1; }
+    .span-2 { grid-column: span 2; }
+    .span-3 { grid-column: span 3; }
+    .span-4 { grid-column: span 4; }
+    .span-5 { grid-column: span 5; }
+
+    /* Responsive Adaptation for Smaller Screens */
+    @media (max-width: 900px) {
+      .grid-5 {
+        grid-template-columns: 1fr;
+      }
+      .span-1, .span-2, .span-3, .span-4, .span-5 {
+        grid-column: span 1;
+      }
+    }
+
+    /* Section Spacing locked to Baseline */
+    section {
+      margin-bottom: calc(var(--baseline) * 3);
+    }
+
+    .card {
+      border-top: 1px solid var(--color-border);
+      padding-top: calc(var(--baseline) - 1px);
+      margin-bottom: var(--baseline);
+    }
+
+    .card-num {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--color-muted);
+      font-size: 18px;
+      line-height: var(--baseline);
+    }
+
+    /* Standalone Button / CTA */
+    .cta-button {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 14px;
+      line-height: calc(var(--baseline) * 2); /* 48px height */
+      padding: 0 calc(var(--baseline) * 1.5);
+      background-color: var(--color-accent);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+      transition: background-color 0.2s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #1a4269;
+    }
+
+    ul.clean-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul.clean-list li {
+      line-height: var(--baseline);
+      margin-bottom: var(--baseline);
+      border-bottom: 1px dashed var(--color-border);
+      padding-bottom: calc(var(--baseline) - 1px);
+    }
+  </style>
 </head>
 <body>
-<main id="report"><p class="loading">Loading…</p></main>
-<script src="./data/site-data.js"></script>
-<script src="./assets/viewer.js"></script>
+
+  <!-- ==================================================
+       ATTENTION
+       ================================================== -->
+  <section class="grid-5">
+    <div class="span-5">
+      <span class="kicker">Research & Civic Analysis</span>
+      <h1>Civics, Elections & The Exhaustion Engine</h1>
+    </div>
+    <div class="span-3">
+      <p class="lead">
+        Modern democracy has drifted from genuine public participation into transactional extraction. Voters are treated less as deliberate citizens and more as mined data points in a perpetual political machinery.
+      </p>
+    </div>
+    <div class="span-2">
+      <p>
+        This report analyzes how civic fatigue, algorithmic friction, and continuous fundraising cycles deplete voter trust—and maps out structural paths toward restorative democratic systems.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================================================
+       INTEREST
+       ================================================== -->
+  <section>
+    <h2>Understanding the Crisis of Civic Extraction</h2>
+    <div class="grid-5">
+      <div class="span-1 card">
+        <span class="card-num">01</span>
+        <h3>Continuous Friction</h3>
+        <p>Electoral mechanisms increasingly burden citizens with cognitive overhead, ambiguous choices, and endless urgency metrics.</p>
+      </div>
+      <div class="span-1 card">
+        <span class="card-num">02</span>
+        <h3>Data Mining</h3>
+        <p>Voter engagement is quantified, segmented, and harvested for fundraising rather than cultivated for civic empowerment.</p>
+      </div>
+      <div class="span-1 card">
+        <span class="card-num">03</span>
+        <h3>Information Noise</h3>
+        <p>High-volume, low-signal campaign media induces systemic cynicism, causing voters to retreat from institutional discourse.</p>
+      </div>
+      <div class="span-1 card">
+        <span class="card-num">04</span>
+        <h3>Structural Erosion</h3>
+        <p>Short-term electoral tactics weaken long-term democratic infrastructure, leaving communities feeling politically exhausted.</p>
+      </div>
+      <div class="span-1 card">
+        <span class="card-num">05</span>
+        <h3>Trust Deficits</h3>
+        <p>When participation yields extraction rather than representation, public confidence in democratic institutions drops.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================
+       DESIRE
+       ================================================== -->
+  <section>
+    <h2>A Framework for Democratic Renewal</h2>
+    <div class="grid-5">
+      <div class="span-3">
+        <h3>Shift from Extraction to Empowerment</h3>
+        <p>
+          Restoring faith in public institutions requires shifting our focus from short-term voter turnout optimization to building long-term civic resilience. A healthy democracy treats participation as a public good, requiring intentional design, respectful communication, and transparent infrastructure.
+        </p>
+        <p>
+          Our synthesis of field data, public surveys, and civic tech analysis reveals five foundational shifts necessary to replace electoral exhaustion with meaningful public agency:
+        </p>
+      </div>
+      <div class="span-2">
+        <ul class="clean-list">
+          <li><strong>Relational Civics:</strong> Deepening community ties over transactional campaigns.</li>
+          <li><strong>Low-Friction Infrastructure:</strong> Clear, transparent ballot and voting processes.</li>
+          <li><strong>Sustainable Media:</strong> Signal-rich, non-coercive civic communications.</li>
+          <li><strong>Public Commons:</strong> Reclaiming digital spaces for genuine democratic deliberation.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================
+       ACTION
+       ================================================== -->
+  <section class="grid-5">
+    <div class="span-5">
+      <h2>Explore the Complete Research</h2>
+    </div>
+    <div class="span-3">
+      <p class="lead">
+        Access the complete analysis, qualitative interview transcripts, and civic technology design framework.
+      </p>
+      <p>
+        Whether you are an election administrator, civic technologist, or engaged researcher, this standalone archive offers actionable insights for building non-extractive civic tools.
+      </p>
+      <p>
+        <a href="#download" class="cta-button">Read Full Synthesis Report</a>
+      </p>
+    </div>
+    <div class="span-2 card">
+      <span class="card-num">Archive Details</span>
+      <h3>Document Index</h3>
+      <p>• Situation Analysis (MD)</p>
+      <p>• Structural Themes (MD)</p>
+      <p>• Extract Datasets (CSV)</p>
+      <p>• Project Metadata (JSON-LD)</p>
+    </div>
+  </section>
+
 </body>
 </html>
